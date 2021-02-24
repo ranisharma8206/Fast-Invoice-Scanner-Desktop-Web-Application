@@ -24,8 +24,8 @@ export default function Main_container(props) {
                 props.socket.emit('viewer_key_press');
             }
         });
-        props.socket.on("send_image_viewer", (imageUri) => {
-            console.log(imageUri);
+        props.socket.on("send_image_viewer", (imageData) => {
+            console.log(imageData);
         });
     });
     return (
