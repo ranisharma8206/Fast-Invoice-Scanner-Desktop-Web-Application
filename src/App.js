@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import Main_container from './components/Main_container.js'
 import { ViewerInitialScreen } from './components/ViewerInitialScreen.js';
+import { io } from "socket.io-client";
+
+const socket = io("http://127.0.0.1:5000/");
+
 
 function App() {
   const [connectedViewer, setConnectedViewer] = useState(false);
@@ -9,14 +13,14 @@ function App() {
   if(connectedViewer){
     return(
       <div>
-        <Main_container />
+        <Main_container socket = {socket}/>
       </div>
     );
   }
   else{
     return(
       <div>
-        <ViewerInitialScreen connectedViewer = {connectedViewer} setConnectedViewer={setConnectedViewer} viewerUsername={viewerUsername} setViewerUsername={setViewerUsername} />
+        <ViewerInitialScreen connectedViewer = {connectedViewer} setConnectedViewer={setConnectedViewer} viewerUsername={viewerUsername} setViewerUsername={setViewerUsername} socket = {socket} />
       </div>
     );
   }

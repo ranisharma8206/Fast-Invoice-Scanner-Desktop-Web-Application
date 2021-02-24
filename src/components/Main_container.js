@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -16,9 +16,18 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function Main_container() {
+export default function Main_container(props) {
     const classes = useStyles();
-
+    useEffect(() => {
+        document.addEventListener("keyup", function(event) {
+            if (event.key === "Enter") {
+                props.socket.emit('viewer_key_press');
+            }
+        });
+        props.socket.on("send_image_viewer", (imageUri) => {
+            console.log(imageUri);
+        });
+    });
     return (
     <div className={classes.root}>
         <Grid container>

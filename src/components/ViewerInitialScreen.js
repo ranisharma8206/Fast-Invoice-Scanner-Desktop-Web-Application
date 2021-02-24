@@ -29,6 +29,7 @@ export function ViewerInitialScreen(props) {
     };
     const connectViewerBtn = () => {
         props.setConnectedViewer(true);
+        props.socket.emit("viewer_connect", props.viewerUsername);
     };
     return(
         <div className={classes.root}>
@@ -38,6 +39,7 @@ export function ViewerInitialScreen(props) {
                 label="Username"
                 type="text"
                 variant="outlined"
+                autoComplete = "off"
                 onChange={usernameChanged}
                 style={{width : '100%'}}
                 />
