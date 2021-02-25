@@ -31,14 +31,13 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function Saved_images_area() {
+export default function Saved_images_area(props) {
     const classes = useStyles();
+
     return (
     <div className={classes.root}>
         <Paper className={classes.paper} elevation={4}>
-            <Custom_card document={test_image}/>
-            <Custom_card document={test_image}/>
-            <Custom_card document={test_image}/>
+            {props.documents.map((doc)=>{return(<Custom_card document={doc} setSelectedDocument={props.setSelectedDocument}/>)})}
         </Paper>
     </div>
     );

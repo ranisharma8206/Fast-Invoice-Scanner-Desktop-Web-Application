@@ -35,12 +35,27 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function Live_preview_area() {
+export default function Live_preview_area(props) {
     const classes = useStyles();
+
+    const showImagePreview = (doc)=>
+    {
+        if(doc != undefined)
+        {
+            return(
+                <img src={doc.url} alt="Logo" style={{height : 'auto', width : '100%'}} />
+            )
+        }
+        return(
+            <>
+            </>
+        )
+    }
+
     return (
     <div className={classes.root}>
         <Paper className={classes.preview_paper} elevation={4}>
-            <img src={test_image} alt="Logo" style={{height : 'auto', width : '100%'}} />
+            {showImagePreview(props.selectedDocument)}
         </Paper>
         <Paper className={classes.toolbar_paper} elevation={3}>
             <Button

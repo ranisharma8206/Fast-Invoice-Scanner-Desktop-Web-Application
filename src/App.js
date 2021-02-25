@@ -3,7 +3,7 @@ import Main_container from './components/Main_container.js'
 import { ViewerInitialScreen } from './components/ViewerInitialScreen.js';
 import { io } from "socket.io-client";
 
-const socket = io("http://192.168.43.88:5000/");
+const socket = io("http://10.1.7.171:5000/");
 
 
 function App() {

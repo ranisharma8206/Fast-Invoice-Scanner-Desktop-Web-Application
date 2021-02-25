@@ -31,7 +31,7 @@ export default function Custom_card(props) {
     return (
     <div className={classes.root}>
         <Paper className={classes.images_preview} elevation={4}>
-          <img src={props.document} alt="Logo" style={{height : 'auto', width : '100%'}} />
+          <img onClick={()=>{props.setSelectedDocument(props.document)}} src={props.document.url} alt="Logo" style={{height : 'auto', width : '100%'}} />
         </Paper>
         <Paper className={classes.toolbaar_options} elevation={3}>
           <CloudDownloadIcon fontSize="medium" />
