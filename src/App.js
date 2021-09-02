@@ -1,14 +1,18 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Main_container from './components/Main_container.js'
 import { ViewerInitialScreen } from './components/ViewerInitialScreen.js';
-import { io } from "socket.io-client";
-
-const socket = io("http://testing.iitbhilai.ac.in:5000/");
+// import { io } from "socket.io-client";
+import {socket} from "./services/socket";
+// const socket = io("http://192.168.29.212:5000/");
 
 
 function App() {
   const [connectedViewer, setConnectedViewer] = useState(false);
   const [viewerUsername, setViewerUsername] = useState('');
+  
+
+  useEffect(()=>{
+  },[])
 
   if(connectedViewer){
     return(
